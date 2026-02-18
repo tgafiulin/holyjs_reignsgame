@@ -3,6 +3,7 @@ import type { GameCard } from "../shared/types";
 import demoImage from "../assets/images/demo.jpg";
 import demo2Image from "../assets/images/demo2.png";
 import demo3Image from "../assets/images/demo3.jpg";
+import demo4Image from "../assets/images/demo4.jpg";
 
 export const CARDS: GameCard[] = [
   {
@@ -84,6 +85,14 @@ export const CARDS: GameCard[] = [
     image: demo2Image,
     yes: { money: -1, health: 1, expertise: 1, chill: 2 },
     no: { money: 0, health: 0, expertise: -1, chill: 0 },
+  },
+  {
+    id: "rostov",
+    format: "yesno",
+    text: "Друзья зовут тебя в Ростов, но денег осталось всего ничего. Покупаем билеты?",
+    image: demo4Image,
+    yes: { money: -2, health: 0, expertise: 0, chill: 2 },
+    no: { money: 0, health: 0, expertise: 0, chill: -1 },
   },
   {
     id: "insurance",
