@@ -1,3 +1,16 @@
+# До конференции
+
+Игра в стиле Reigns: поездка на конференцию, баланс денег/здоровья/настроения/выгорания. Telegram Mini App.
+
+## Сборка и адрес приложения
+
+- **Сборка:** `npm run build` → результат в папке **`dist/`**.
+- **Локально:** `npm run dev` — приложение открывается в браузере.
+- **Telegram Mini App:** размести содержимое `dist/` на любом HTTPS-хосте и укажи этот URL в BotFather как Web App для бота.
+- **CI (GitHub Actions):** при каждом push собирается артефакт **app** (папка `dist/`). Скачать: репозиторий → вкладка Actions → нужный запуск → блок Summary внизу страницы. Там же кратко написано, по какому адресу искать приложение после деплоя.
+
+---
+
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
