@@ -4,6 +4,7 @@ import demoImage from "../assets/images/demo.jpg";
 import demo2Image from "../assets/images/demo2.png";
 import demo3Image from "../assets/images/demo3.jpg";
 import demo4Image from "../assets/images/demo4.jpg";
+import demo5Image from "../assets/images/demo5.jpg";
 
 export const CARDS: GameCard[] = [
   {
@@ -18,7 +19,7 @@ export const CARDS: GameCard[] = [
     id: "last-feature",
     format: "yesno",
     text: "Перед вылетом просят допилить фичу. Остаёшься?",
-    image: demoImage,
+    image: demo5Image,
     yes: { money: 1, health: -1, expertise: 0, chill: -2 },
     no: { money: -1, health: 0, expertise: 0, chill: 1 },
   },
