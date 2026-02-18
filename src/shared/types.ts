@@ -1,4 +1,4 @@
-export type ResourceKey = 'money' | 'health' | 'mood' | 'burnout';
+export type ResourceKey = "money" | "health" | "mood" | "burnout";
 
 export interface ResourceDeltas {
   money: number;
@@ -10,6 +10,7 @@ export interface ResourceDeltas {
 export interface GameCard {
   id: string;
   text: string;
+  image?: string;
   yes: ResourceDeltas;
   no: ResourceDeltas;
 }
@@ -24,10 +25,6 @@ export interface GameState {
   history: number[];
 }
 
-export type GameScreen = 'menu' | 'game' | 'gameover' | 'win';
+export type GameScreen = "menu" | "game" | "gameover" | "win";
 
-export type GameOverReason =
-  | 'money'
-  | 'health'
-  | 'mood'
-  | 'burnout';
+export type GameOverReason = "money" | "health" | "mood" | "burnout";

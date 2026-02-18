@@ -9,6 +9,9 @@ interface GameCardProps {
 export function GameCard({ card, onYes, onNo }: GameCardProps) {
   return (
     <div className="game-card">
+      {card.image && (
+        <img src={card.image} alt="" className="game-card-image" />
+      )}
       <p className="game-card-text">{card.text}</p>
       <div className="game-card-actions">
         <button type="button" className="btn btn-no" onClick={onNo}>
