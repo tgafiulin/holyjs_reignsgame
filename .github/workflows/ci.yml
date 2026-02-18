@@ -1,3 +1,7 @@
+# GitHub Actions: этот workflow запускается автоматически при каждом push
+# и при каждом pull request в ветки main/master.
+# Репозиторий должен быть на GitHub; файлы в .github/workflows/ подхватываются сами.
+
 name: CI
 
 on:
@@ -26,3 +30,17 @@ jobs:
 
       - name: Build
         run: npm run build
+
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: app
+          path: dist/
+          retention-days: 7
+
+      - name: Where to find the app
+        run: |
+          echo "## Build output" >> $GITHUB_STEP_SUMMARY
+          echo "- Artifact: **app** (folder \`dist/\`) — скачай во вкладке Summary этого запуска." >> $GITHUB_STEP_SUMMARY
+          echo "- Чтобы открыть как Telegram Mini App: размести содержимое \`dist/\` на любом HTTPS-хосте и укажи этот URL в BotFather." >> $GITHUB_STEP_SUMMARY
+          echo "- Пример с GitHub Pages: \`https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/\` (нужен отдельный workflow для деплоя)." >> $GITHUB_STEP_SUMMARY
