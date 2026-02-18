@@ -52,9 +52,7 @@ export function useGameState() {
   }, []);
 
   const choose = useCallback(
-    (yes: boolean) => {
-      const card = CARDS[state.currentCardIndex];
-      const deltas = yes ? card.yes : card.no;
+    (deltas: ResourceDeltas) => {
       const newResources = applyDeltas(state, deltas);
       const daysLeft = state.daysLeft - 1;
       const history = [...state.history, state.currentCardIndex];

@@ -8,7 +8,7 @@ interface GameProps {
   mood: number;
   burnout: number;
   currentCard: import('../shared/types').GameCard | null;
-  onChoose: (yes: boolean) => void;
+  onChoose: (deltas: import('../shared/types').ResourceDeltas) => void;
 }
 
 export function Game({
@@ -28,11 +28,7 @@ export function Game({
       <ResourceBars money={money} health={health} mood={mood} burnout={burnout} />
       <main className="game-main">
         {currentCard ? (
-          <GameCard
-            card={currentCard}
-            onYes={() => onChoose(true)}
-            onNo={() => onChoose(false)}
-          />
+          <GameCard card={currentCard} onChoose={onChoose} />
         ) : (
           <p>Загрузка...</p>
         )}

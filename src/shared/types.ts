@@ -7,13 +7,32 @@ export interface ResourceDeltas {
   burnout: number;
 }
 
-export interface GameCard {
+/** Вариант ответа для карточки формата choice */
+export interface CardOption {
+  label: string;
+  deltas: ResourceDeltas;
+}
+
+/** Карточка с ответами Да/Нет */
+export interface YesNoGameCard {
   id: string;
+  format: 'yesno';
   text: string;
   image?: string;
   yes: ResourceDeltas;
   no: ResourceDeltas;
 }
+
+/** Карточка с кастомными вариантами ответа */
+export interface ChoiceGameCard {
+  id: string;
+  format: 'choice';
+  text: string;
+  image?: string;
+  options: CardOption[];
+}
+
+export type GameCard = YesNoGameCard | ChoiceGameCard;
 
 export interface GameState {
   daysLeft: number;

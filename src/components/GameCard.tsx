@@ -1,12 +1,11 @@
-import type { GameCard as CardType } from '../shared/types';
+import type { GameCard as CardType, ResourceDeltas } from '../shared/types';
 
 interface GameCardProps {
   card: CardType;
-  onYes: () => void;
-  onNo: () => void;
+  onChoose: (deltas: ResourceDeltas) => void;
 }
 
-export function GameCard({ card, onYes, onNo }: GameCardProps) {
+export function GameCard({ card, onChoose }: GameCardProps) {
   return (
     <div className="game-card">
       {card.image && (
@@ -14,12 +13,27 @@ export function GameCard({ card, onYes, onNo }: GameCardProps) {
       )}
       <p className="game-card-text">{card.text}</p>
       <div className="game-card-actions">
-        <button type="button" className="btn btn-no" onClick={onNo}>
-          Нет
-        </button>
-        <button type="button" className="btn btn-yes" onClick={onYes}>
-          Да
-        </button>
+        {card.format === 'yesno' ? (
+          <>
+            <button type="button" className="btn btn-no" onClick={() => onChoose(card.no)}>
+              Нет
+            </button>
+            <button type="button" className="btn btn-yes" onClick={() => onChoose(card.yes)}>
+              Да
+            </button>
+          </>
+        ) : (
+          card.options.map((option, index) => (
+            <button
+              key={index}
+              type="button"
+              className="btn btn-choice"
+              onClick={() => onChoose(option.deltas)}
+            >
+              {option.label}
+            </button>
+          ))
+        )}
       </div>
     </div>
   );
