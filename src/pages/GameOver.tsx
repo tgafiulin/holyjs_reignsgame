@@ -4,7 +4,7 @@ const REASON_TEXTS: Record<GameOverReason, string> = {
   money: 'Закончились деньги — поездка сорвалась.',
   health: 'Здоровье подвело — до конференции не добрался.',
   mood: 'Настроение на нуле — решил остаться дома.',
-  burnout: 'Выгорание добило — пришлось отменить поездку.',
+  burnout: 'Ты выгорел.',
 };
 
 interface GameOverProps {

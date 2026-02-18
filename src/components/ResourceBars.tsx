@@ -13,20 +13,22 @@ const KEYS: ResourceKey[] = ['money', 'health', 'mood', 'burnout'];
 
 export function ResourceBars({ money, health, mood, burnout }: ResourceBarsProps) {
   const values = { money, health, mood, burnout };
-  const isInverse = (key: ResourceKey) => key === 'burnout'; // high = bad
+  // chill = MAX - burnout: high chill = good, low chill = bad (выгорел)
+  const displayValues = { ...values, burnout: MAX_RESOURCE - burnout };
 
   return (
     <div className="resource-bars">
       {KEYS.map((key) => {
-        const value = values[key];
+        const value = displayValues[key];
         const pct = (value / MAX_RESOURCE) * 100;
-        const color = isInverse(key)
-          ? value >= MAX_RESOURCE
-            ? 'var(--danger)'
-            : 'var(--burnout)'
-          : value <= 0
-            ? 'var(--danger)'
-            : `var(--${key})`;
+        const color =
+          key === 'burnout'
+            ? value <= 0
+              ? 'var(--danger)'
+              : 'var(--chill)'
+            : value <= 0
+              ? 'var(--danger)'
+              : `var(--${key})`;
         return (
           <div key={key} className="resource-row">
             <span className="resource-label">{RESOURCE_LABELS[key]}</span>

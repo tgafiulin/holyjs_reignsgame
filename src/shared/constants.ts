@@ -21,5 +21,5 @@ export const RESOURCE_LABELS: Record<
   money: 'Деньги',
   health: 'Здоровье',
   mood: 'Настроение',
-  burnout: 'Выгорание',
+  burnout: 'Чилл',
 };
