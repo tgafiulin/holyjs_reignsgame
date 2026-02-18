@@ -1,0 +1,199 @@
+:root {
+  font-family: system-ui, -apple-system, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+
+  /* Game palette */
+  --bg: #1a1b26;
+  --bg-card: #24283b;
+  --text: #c0caf5;
+  --text-muted: #565f89;
+  --money: #9ece6a;
+  --health: #73daca;
+  --mood: #bb9af7;
+  --burnout: #f7768e;
+  --danger: #f7768e;
+  --yes: #9ece6a;
+  --no: #f7768e;
+  --primary: #7aa2f7;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  min-height: 100dvh;
+  background: var(--bg);
+  color: var(--text);
+  overflow-x: hidden;
+}
+
+#root {
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: transform 0.15s, opacity 0.15s;
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+button:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: var(--bg);
+  padding: 14px 28px;
+  font-size: 1.1rem;
+}
+
+.btn-yes {
+  background: var(--yes);
+  color: var(--bg);
+  padding: 14px 24px;
+}
+
+.btn-no {
+  background: var(--no);
+  color: var(--bg);
+  padding: 14px 24px;
+}
+
+.screen {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  padding-bottom: max(24px, env(safe-area-inset-bottom));
+}
+
+.screen-menu .title {
+  margin: 0 0 12px;
+  font-size: 1.75rem;
+  text-align: center;
+}
+
+.screen-menu .subtitle {
+  margin: 0 0 32px;
+  max-width: 320px;
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.game-header {
+  width: 100%;
+  padding: 12px 0;
+  text-align: center;
+}
+
+.days-badge {
+  background: var(--bg-card);
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.resource-bars {
+  width: 100%;
+  max-width: 340px;
+  margin-bottom: 20px;
+}
+
+.resource-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.resource-label {
+  flex: 0 0 90px;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.resource-track {
+  flex: 1;
+  height: 10px;
+  background: var(--bg-card);
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.resource-fill {
+  height: 100%;
+  border-radius: 5px;
+  transition: width 0.3s ease;
+}
+
+.game-main {
+  flex: 1;
+  width: 100%;
+  max-width: 360px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.game-card {
+  background: var(--bg-card);
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.game-card-text {
+  margin: 0 0 24px;
+  font-size: 1.15rem;
+  line-height: 1.5;
+  min-height: 3.5em;
+}
+
+.game-card-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: stretch;
+}
+
+.game-card-actions .btn {
+  flex: 1;
+}
+
+.screen-title {
+  margin: 0 0 12px;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.screen-text {
+  margin: 0 0 24px;
+  text-align: center;
+  color: var(--text-muted);
+  max-width: 280px;
+}
