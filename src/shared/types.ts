@@ -1,10 +1,10 @@
-export type ResourceKey = "money" | "health" | "mood" | "burnout";
+export type ResourceKey = "money" | "health" | "expertise" | "chill";
 
 export interface ResourceDeltas {
   money: number;
   health: number;
-  mood: number;
-  burnout: number;
+  expertise: number;
+  chill: number;
 }
 
 /** Вариант ответа для карточки формата choice */
@@ -38,12 +38,12 @@ export interface GameState {
   daysLeft: number;
   money: number;
   health: number;
-  mood: number;
-  burnout: number;
+  expertise: number;
+  chill: number;
   currentCardIndex: number;
   history: number[];
 }
 
 export type GameScreen = "menu" | "game" | "gameover" | "win";
 
-export type GameOverReason = "money" | "health" | "mood" | "burnout";
+export type GameOverReason = "money" | "health" | "expertise" | "chill";

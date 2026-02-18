@@ -10,22 +10,22 @@ function clamp(value: number): number {
 function applyDeltas(
   state: GameState,
   deltas: ResourceDeltas
-): Pick<GameState, 'money' | 'health' | 'mood' | 'burnout'> {
+): Pick<GameState, 'money' | 'health' | 'expertise' | 'chill'> {
   return {
     money: clamp(state.money + deltas.money),
     health: clamp(state.health + deltas.health),
-    mood: clamp(state.mood + deltas.mood),
-    burnout: clamp(state.burnout + deltas.burnout),
+    expertise: clamp(state.expertise + deltas.expertise),
+    chill: clamp(state.chill + deltas.chill),
   };
 }
 
 function checkGameOver(
-  resources: Pick<GameState, 'money' | 'health' | 'mood' | 'burnout'>
+  resources: Pick<GameState, 'money' | 'health' | 'expertise' | 'chill'>
 ): GameOverReason | null {
   if (resources.money <= MIN_RESOURCE) return 'money';
   if (resources.health <= MIN_RESOURCE) return 'health';
-  if (resources.mood <= MIN_RESOURCE) return 'mood';
-  if (resources.burnout >= MAX_RESOURCE) return 'burnout';
+  if (resources.expertise <= MIN_RESOURCE) return 'expertise';
+  if (resources.chill <= MIN_RESOURCE) return 'chill';
   return null;
 }
 

@@ -3,8 +3,8 @@ import type { GameOverReason } from '../shared/types';
 const REASON_TEXTS: Record<GameOverReason, string> = {
   money: 'Закончились деньги — поездка сорвалась.',
   health: 'Здоровье подвело — до конференции не добрался.',
-  mood: 'Настроение на нуле — решил остаться дома.',
-  burnout: 'Ты выгорел.',
+  expertise: 'Экспертиза на нуле — пришлось отменить поездку.',
+  chill: 'Чилл опустился — ты выгорел.',
 };
 
 interface GameOverProps {

@@ -5,8 +5,8 @@ interface GameProps {
   daysLeft: number;
   money: number;
   health: number;
-  mood: number;
-  burnout: number;
+  expertise: number;
+  chill: number;
   currentCard: import('../shared/types').GameCard | null;
   onChoose: (deltas: import('../shared/types').ResourceDeltas) => void;
 }
@@ -15,8 +15,8 @@ export function Game({
   daysLeft,
   money,
   health,
-  mood,
-  burnout,
+  expertise,
+  chill,
   currentCard,
   onChoose,
 }: GameProps) {
@@ -25,7 +25,7 @@ export function Game({
       <header className="game-header">
         <span className="days-badge">Дней до конференции: {daysLeft}</span>
       </header>
-      <ResourceBars money={money} health={health} mood={mood} burnout={burnout} />
+      <ResourceBars money={money} health={health} expertise={expertise} chill={chill} />
       <main className="game-main">
         {currentCard ? (
           <GameCard card={currentCard} onChoose={onChoose} />

@@ -17,8 +17,8 @@ function App() {
         daysLeft={state.daysLeft}
         money={state.money}
         health={state.health}
-        mood={state.mood}
-        burnout={state.burnout}
+        expertise={state.expertise}
+        chill={state.chill}
         currentCard={currentCard}
         onChoose={choose}
       />

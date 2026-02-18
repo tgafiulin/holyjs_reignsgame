@@ -8,8 +8,8 @@ export const INITIAL_STATE: GameState = {
   daysLeft: INITIAL_DAYS,
   money: 3,
   health: 3,
-  mood: 3,
-  burnout: 2,
+  expertise: 3,
+  chill: 3,
   currentCardIndex: 0,
   history: [],
 };
@@ -20,6 +20,6 @@ export const RESOURCE_LABELS: Record<
 > = {
   money: 'Деньги',
   health: 'Здоровье',
-  mood: 'Настроение',
-  burnout: 'Чилл',
+  expertise: 'Экспертиза',
+  chill: 'Чилл',
 };
